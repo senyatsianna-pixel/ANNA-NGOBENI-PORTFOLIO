@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Anna Ngobeni — Aspiring Software Engineer Portfolio. Web development, relational databases, and software testing." />
+  <title>Anna Ngobeni | Aspiring Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    :root {
+      --burgundy-dark: #28040e;
+      --burgundy-main: #4a081b;
+      --burgundy-rich: #6d0e29;
+      --rose-accent: #e5839e;
+      --rose-soft: #f7dbe2;
+      --blush-bg: #fbf0f2;
+      --cream-card: #fff8f9;
+      --white: #ffffff;
+      --ink-dark: #250610;
+      --ink-body: #3c1e27;
+      --ink-muted: #6e4a55;
+      --border-soft: #ebd0d7;
+      --success-bg: #e7f6ee;
+      --success-ink: #135c36;
+      --error-bg: #fdebec;
+      --error-ink: #8f1626;
+      --shadow-card: 0 12px 28px rgba(40, 4, 14, 0.08);
+      --shadow-elevated: 0 20px 44px rgba(40, 4, 14, 0.16);
+      --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--blush-bg);
+      color: var(--ink-body);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    :focus-visible {
+      outline: 2.5px solid var(--rose-accent);
+      outline-offset: 2px;
+    }
+
+    /* TOP NAVIGATION BAR */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: linear-gradient(90deg, #21030b 0%, #3d0615 50%, #21030b 100%);
+      color: var(--white);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 6px 24px rgba(24, 2, 8, 0.28);
+    }
+
+    .top-nav-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 10px clamp(14px, 3vw, 24px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--white);
+      padding: 0;
+      text-align: left;
+    }
+
+    .an-monogram {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(26px, 3vw, 30px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -2px;
+      color: var(--white);
+      padding-right: 12px;
+      border-right: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
+    .an-monogram span {
+      font-style: italic;
+      color: var(--rose-soft);
+    }
+
+    .brand-name {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(15px, 1.8vw, 17px);
+      font-weight: 700;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-tab {
+      background: transparent;
+      border: 1px solid transparent;
+      color: rgba(255, 255, 255, 0.86);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.22s var(--ease-smooth);
+      white-space: nowrap;
+    }
+
+    .nav-tab:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-tab.is-active {
+      background: var(--rose-soft);
+      color: var(--burgundy-dark);
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+    }
+
+    .nav-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      transition: all 0.2s ease;
+      font-size: 14px;
+    }
+
+    .nav-social-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .say-hello-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #6b112a, #420718);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.22s var(--ease-smooth);
+      white-space: nowrap;
+    }
+
+    .say-hello-btn:hover {
+      transform: translateY(-1.5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      border-color: var(--rose-soft);
+    }
+
+    /* VIEW SWITCHING */
+    .views-wrapper {
+      flex: 1;
+    }
+
+    .view-panel {
+      display: none;
+    }
+
+    .view-panel.is-active {
+      display: block;
+      animation: viewFadeSlide 0.38s var(--ease-smooth) both;
+    }
+
+    @keyframes viewFadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* PORTRAIT FRAME */
+    .portrait-ring {
+      width: clamp(200px, 23vw, 255px);
+      height: clamp(215px, 25vw, 275px);
+      margin: 0 auto;
+      border-radius: 48% 52% 46% 54% / 45% 42% 58% 55%;
+      padding: 8px;
+      background: linear-gradient(155deg, rgba(255, 255, 255, 0.92), rgba(229, 131, 158, 0.72), rgba(74, 8, 27, 0.88));
+      box-shadow: 0 20px 42px rgba(24, 2, 8, 0.28);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 46% 54% 44% 56% / 43% 40% 60% 57%;
+      background: linear-gradient(145deg, #f7dbe2, #e5839e);
+      display: block;
+    }
+
+    .portrait-fallback {
+      width: 100%;
+      height: 100%;
+      border-radius: 46% 54% 44% 56% / 43% 40% 60% 57%;
+      background: linear-gradient(145deg, #f7dbe2, #e9a6b9);
+      color: var(--burgundy-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: -3px;
+    }
+
+    /* BUTTONS */
+    .btn-cream {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8e6eb 100%);
+      color: var(--burgundy-dark);
+      font-weight: 700;
+      font-size: 13.5px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+      cursor: pointer;
+      transition: all 0.22s var(--ease-smooth);
+    }
+
+    .btn-cream:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-wine-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 999px;
+      background: rgba(58, 6, 20, 0.72);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 13.5px;
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+      cursor: pointer;
+      transition: all 0.22s var(--ease-smooth);
+    }
+
+    .btn-wine-outline:hover {
+      background: var(--burgundy-rich);
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn-burgundy-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #680d27, #3a0514);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 13.5px;
+      border: none;
+      box-shadow: 0 8px 20px rgba(58, 5, 20, 0.22);
+      cursor: pointer;
+      transition: all 0.22s var(--ease-smooth);
+    }
+
+    .btn-burgundy-pill:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-soft-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--rose-soft);
+      color: var(--burgundy-dark);
+      font-weight: 700;
+      font-size: 12.5px;
+      border: 1px solid var(--border-soft);
+      cursor: pointer;
+      transition: all 0.2s var(--ease-smooth);
+    }
+
+    .btn-soft-pill:hover {
+      background: #f0c9d3;
+    }
+
+    /* SLOGANS AT BOTTOM OF SECTIONS */
+    .bottom-slogan-uppercase {
+      text-align: center;
+      margin: 26px auto 4px;
+      padding: 0 16px;
+      font-size: clamp(11px, 1.25vw, 12.5px);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--burgundy-main);
+    }
+
+    .bottom-slogan-script {
+      text-align: center;
+      margin: 26px auto 4px;
+      padding: 0 16px;
+      font-family: "Caveat", cursive;
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 700;
+      color: var(--rose-soft);
+    }
+
+    /* VIEW 1: HOME */
+    .home-banner {
+      background: radial-gradient(circle at 72% 30%, #8c1a3a 0%, #4d081c 48%, #26030d 100%);
+      color: var(--white);
+      padding: clamp(28px, 4vw, 44px) clamp(16px, 4vw, 28px) clamp(48px, 6vw, 66px);
+    }
+
+    .home-banner-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.25fr 0.8fr;
+      align-items: center;
+      gap: clamp(20px, 3.5vw, 40px);
+    }
+
+    .home-greeting {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(26px, 3.4vw, 38px);
+      margin: 0 0 4px;
+      line-height: 1.1;
+    }
+
+    .home-name {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(34px, 4.6vw, 50px);
+      font-weight: 800;
+      line-height: 1.08;
+      margin: 0 0 10px;
+      color: var(--white);
+    }
+
+    .home-role {
+      font-size: clamp(13px, 1.5vw, 16px);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rose-soft);
+      padding-bottom: 8px;
+      border-bottom: 1.5px solid rgba(229, 131, 158, 0.55);
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .home-bio {
+      max-width: 540px;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: clamp(13.5px, 1.45vw, 14.5px);
+      margin: 0 0 20px;
+      line-height: 1.55;
+    }
+
+    .home-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .home-highlights-wrap {
+      max-width: 1220px;
+      margin: -22px auto 32px;
+      padding: 0 clamp(16px, 3vw, 24px);
+      position: relative;
+      z-index: 5;
+    }
+
+    .home-highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .highlight-card {
+      background: var(--cream-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      padding: 20px 16px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+    }
+
+    .highlight-icon-circle {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      background: linear-gradient(145deg, #6c0e28, #3b0514);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .highlight-card h3 {
+      margin: 0 0 6px;
+      font-size: 19.5px;
+      color: var(--burgundy-dark);
+    }
+
+    .highlight-card p {
+      margin: 0;
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+    }
+
+    /* VIEW 2: ABOUT ME */
+    .about-top-stage {
+      background: linear-gradient(135deg, #f9e6eb 0%, #fff8f9 55%, #f3d9e1 100%);
+      padding: clamp(28px, 4vw, 42px) clamp(16px, 3vw, 24px);
+    }
+
+    .about-top-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.8fr 1.35fr;
+      align-items: center;
+      gap: clamp(22px, 4vw, 38px);
+    }
+
+    .about-kicker {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--burgundy-rich);
+      font-weight: 700;
+      margin: 0 0 6px;
+    }
+
+    .about-greeting-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(28px, 3.8vw, 42px);
+      font-weight: 800;
+      color: var(--burgundy-dark);
+      margin: 0 0 6px;
+      line-height: 1.1;
+    }
+
+    .about-role-heading {
+      font-size: clamp(14.5px, 1.8vw, 19px);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--burgundy-main);
+      margin: 0 0 12px;
+    }
+
+    .about-bio-text {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: var(--ink-body);
+      max-width: 620px;
+    }
+
+    .about-cards-section {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 24px clamp(16px, 3vw, 24px) 36px;
+    }
+
+    .about-four-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .about-card {
+      background: var(--cream-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      padding: 20px 18px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .about-card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      color: var(--burgundy-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .about-card p {
+      margin: 0 0 10px;
+      font-size: 13px;
+      color: var(--ink-body);
+    }
+
+    .about-status-note {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--burgundy-rich);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .about-interests-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 6px;
+      font-size: 12.5px;
+      color: var(--ink-body);
+    }
+
+    .about-interests-list li::before {
+      content: "✓ ";
+      color: var(--burgundy-rich);
+      font-weight: 700;
+    }
+
+    .about-connect-dark {
+      background: linear-gradient(155deg, #580b22, #29030e);
+      color: var(--white);
+      border-radius: 18px;
+      padding: 20px 18px;
+      box-shadow: var(--shadow-elevated);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .about-connect-dark h3 {
+      margin: 0 0 6px;
+      font-size: 21px;
+      color: var(--white);
+    }
+
+    .about-connect-dark p {
+      margin: 0 0 12px;
+      font-size: 12.5px;
+      color: var(--rose-soft);
+    }
+
+    .connect-meta-list {
+      display: grid;
+      gap: 8px;
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    .connect-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      word-break: break-word;
+    }
+
+    /* VIEW 3: PROJECTS */
+    .subpage-banner {
+      background: linear-gradient(105deg, #29030e 0%, #5c0c23 55%, #8a1d3d 100%);
+      color: var(--white);
+      padding: clamp(28px, 4vw, 42px) clamp(16px, 3vw, 24px);
+    }
+
+    .subpage-banner-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+    }
+
+    .banner-kicker {
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--rose-soft);
+      margin: 0 0 6px;
+      font-weight: 700;
+    }
+
+    .banner-title {
+      font-size: clamp(32px, 4.8vw, 50px);
+      margin: 0 0 8px;
+      color: var(--white);
+      line-height: 1.05;
+    }
+
+    .banner-title span {
+      color: var(--rose-accent);
+      font-style: italic;
+    }
+
+    .banner-sub {
+      margin: 0;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 620px;
+    }
+
+    .projects-container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 26px clamp(16px, 3vw, 24px) 44px;
+    }
+
+    .projects-top-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .pill-filter-btn {
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--burgundy-main);
+      border: 1.5px solid var(--burgundy-main);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s var(--ease-smooth);
+    }
+
+    .pill-filter-btn:hover {
+      background: var(--rose-soft);
+    }
+
+    .pill-filter-btn.is-active {
+      background: linear-gradient(135deg, #680d27, #380413);
+      color: var(--white);
+      border-color: var(--burgundy-dark);
+    }
+
+    .projects-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-tile {
+      background: var(--cream-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth);
+    }
+
+    .project-tile.is-hidden {
+      display: none;
+    }
+
+    .project-tile:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-elevated);
+    }
+
+    .project-photo-frame {
+      position: relative;
+      height: 175px;
+      width: 100%;
+      overflow: hidden;
+      background: #24030c;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .project-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.35s var(--ease-smooth);
+    }
+
+    .project-tile:hover .project-photo-frame img {
+      transform: scale(1.04);
+    }
+
+    .project-tile-body {
+      padding: 18px 20px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-tile-title {
+      font-size: 22px;
+      color: var(--burgundy-dark);
+      margin: 0 0 6px;
+    }
+
+    .project-tile-desc {
+      margin: 0 0 12px;
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+
+    .project-tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-tech-pill {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: var(--rose-soft);
+      color: var(--burgundy-dark);
+    }
+
+    .project-cta-card {
+      background: linear-gradient(145deg, #f9e4ea, #f2cfd9);
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      box-shadow: var(--shadow-card);
+    }
+
+    .project-cta-card h3 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      color: var(--burgundy-dark);
+    }
+
+    .project-cta-card p {
+      margin: 0 0 16px;
+      font-size: 13px;
+      color: var(--ink-body);
+    }
+
+    /* VIEW 4: SKILLS */
+    .skills-container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 34px clamp(16px, 3vw, 24px) 48px;
+    }
+
+    .skills-row-top {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr 0.9fr;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+
+    .skills-row-bottom {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr 0.95fr;
+      gap: 24px;
+    }
+
+    .skill-panel {
+      position: relative;
+      background: var(--cream-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      padding: 30px 18px 20px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .skill-header-pill {
+      position: absolute;
+      top: -15px;
+      left: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #680d27, #380413);
+      color: var(--white);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .skill-icon-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .skill-icon-grid.cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .skill-icon-grid.cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skill-box {
+      background: var(--rose-soft);
+      border-radius: 12px;
+      padding: 12px 6px;
+      text-align: center;
+      border: 1px solid rgba(109, 14, 41, 0.12);
+    }
+
+    .skill-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      margin: 0 auto 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 11.5px;
+      color: var(--white);
+      background: var(--burgundy-main);
+    }
+
+    .skill-box span {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink-dark);
+    }
+
+    .soft-skills-panel {
+      background: linear-gradient(155deg, #5c0c23, #27030d);
+      color: var(--white);
+      border-radius: 18px;
+      padding: 22px 20px;
+      box-shadow: var(--shadow-elevated);
+    }
+
+    .soft-skills-panel h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      color: var(--white);
+    }
+
+    .soft-skills-panel ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 7px;
+      font-size: 13px;
+    }
+
+    .soft-skills-panel li::before {
+      content: "✓ ";
+      color: var(--rose-accent);
+      font-weight: 700;
+    }
+
+    /* VIEW 5: CONTACT */
+    .contact-banner-bg {
+      background: radial-gradient(circle at 38% 35%, #8a1939 0%, #49071a 52%, #24030c 100%);
+      color: var(--white);
+      padding: clamp(32px, 4.5vw, 48px) clamp(16px, 3vw, 24px) clamp(36px, 5vw, 56px);
+    }
+
+    .contact-grid-3 {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.95fr 0.85fr 1.15fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .contact-heading-main {
+      font-size: clamp(38px, 5vw, 56px);
+      line-height: 1.02;
+      margin: 0 0 8px;
+      color: var(--white);
+    }
+
+    .contact-heading-main span {
+      color: var(--rose-accent);
+    }
+
+    .contact-script-sub {
+      font-family: "Caveat", cursive;
+      font-size: clamp(26px, 3vw, 32px);
+      color: var(--rose-soft);
+      margin: 0 0 10px;
+    }
+
+    .contact-pill-stack {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .contact-info-card {
+      background: var(--cream-card);
+      color: var(--ink-dark);
+      border-radius: 14px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+    }
+
+    .contact-info-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--burgundy-main);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .contact-form-card {
+      background: var(--cream-card);
+      color: var(--ink-dark);
+      border-radius: 22px;
+      padding: clamp(20px, 3vw, 28px);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.34);
+    }
+
+    .contact-form-card h3 {
+      text-align: center;
+      font-size: 28px;
+      color: var(--burgundy-dark);
+      margin: 0 0 4px;
+    }
+
+    .contact-form-sub {
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin: 0 0 18px;
+    }
+
+    .field-row {
+      margin-bottom: 12px;
+    }
+
+    .field-input,
+    .field-textarea {
+      width: 100%;
+      border: 1px solid #e2c5cd;
+      background: var(--white);
+      color: var(--ink-dark);
+      padding: 10px 14px;
+      font-size: 13.5px;
+    }
+
+    .field-input {
+      border-radius: 999px;
+    }
+
+    .field-textarea {
+      border-radius: 14px;
+      resize: vertical;
+      min-height: 82px;
+    }
+
+    .status-banner {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      display: none;
+    }
+
+    .status-banner.is-success {
+      display: block;
+      background: var(--success-bg);
+      color: var(--success-ink);
+    }
+
+    .status-banner.is-error {
+      display: block;
+      background: var(--error-bg);
+      color: var(--error-ink);
+    }
+
+    /* SITE FOOTER */
+    .site-footer {
+      background: linear-gradient(90deg, #21030b 0%, #3d0615 50%, #21030b 100%);
+      color: var(--white);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 24px clamp(16px, 3vw, 28px) 18px;
+      margin-top: auto;
+    }
+
+    .site-footer-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .site-footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .site-footer-brand strong {
+      display: block;
+      font-size: 15px;
+      color: var(--white);
+    }
+
+    .site-footer-brand p {
+      margin: 2px 0 0;
+      font-size: 12px;
+      color: var(--rose-soft);
+    }
+
+    .site-footer-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav-link {
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .footer-nav-link:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+    }
+
+    .site-footer-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .site-footer-bottom {
+      max-width: 1220px;
+      margin: 14px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* TABLET & MOBILE RESPONSIVE BREAKPOINTS */
+    @media (max-width: 1080px) {
+      .home-highlights-grid,
+      .about-four-grid,
+      .projects-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skills-row-top,
+      .skills-row-bottom {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .home-banner-inner,
+      .about-top-inner,
+      .contact-grid-3 {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .home-bio,
+      .about-bio-text {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .home-cta-row {
+        justify-content: center;
+      }
+
+      .contact-info-card,
+      .connect-meta-row {
+        justify-content: flex-start;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-footer-inner,
+      .site-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .top-nav-inner {
+        justify-content: center;
+      }
+
+      .home-highlights-grid,
+      .about-four-grid,
+      .projects-grid-3,
+      .skills-row-top,
+      .skills-row-bottom {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-icon-grid,
+      .skill-icon-grid.cols-3,
+      .skill-icon-grid.cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <button type="button" class="brand-group" data-switch-view="home">
+        <div class="an-monogram">A<span>N</span></div>
+        <div class="brand-name">Anna Ngobeni</div>
+      </button>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><button type="button" class="nav-tab is-active" data-switch-view="home">Home</button></li>
+          <li><button type="button" class="nav-tab" data-switch-view="about">About Me</button></li>
+          <li><button type="button" class="nav-tab" data-switch-view="projects">Projects</button></li>
+          <li><button type="button" class="nav-tab" data-switch-view="skills">Skills</button></li>
+          <li><button type="button" class="nav-tab" data-switch-view="contact">Contact</button></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right-actions">
+        <a
+          href="https://www.linkedin.com/in/anna-ngobeni-590826278?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-social-link"
+          aria-label="LinkedIn Profile"
+          title="LinkedIn"
+        >
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a
+          href="https://github.com/senyatsianna-pixel"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-social-link"
+          aria-label="GitHub Profile"
+          title="GitHub"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <button type="button" class="say-hello-btn" id="sayHelloNavBtn" data-switch-view="contact" data-focus-name="true">
+          <i class="fa-regular fa-paper-plane"></i> Say Hello +
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="views-wrapper">
+    <!-- VIEW 1: HOME -->
+    <section id="view-home" class="view-panel is-active" aria-label="Home">
+      <div class="home-banner">
+        <div class="home-banner-inner">
+          <div>
+            <p class="home-greeting">Hello, I&rsquo;m</p>
+            <h1 class="home-name">Anna Ngobeni</h1>
+            <div class="home-role">ASPIRING SOFTWARE ENGINEER</div>
+            <p class="home-bio">
+              I build modern, responsive, and user-friendly web applications, structured relational databases, and reliable tested software solutions.
+            </p>
+            <div class="home-cta-row">
+              <button type="button" class="btn-cream" data-switch-view="projects">
+                <i class="fa-solid fa-code"></i> View My Projects
+              </button>
+              <button type="button" class="btn-wine-outline cv-download-trigger">
+                <i class="fa-solid fa-download"></i> Download CV
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <div class="portrait-ring">
+              <img
+                src="profile.jpeg"
+                alt="Anna Ngobeni"
+                class="portrait-img"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="portrait-fallback" style="display: none;">AN</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-highlights-wrap">
+        <div class="home-highlights-grid">
+          <div class="highlight-card">
+            <div class="highlight-icon-circle"><i class="fa-solid fa-code"></i></div>
+            <h3>Software Engineering</h3>
+            <p>Turning ideas into practical, functional software solutions.</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon-circle"><i class="fa-solid fa-database"></i></div>
+            <h3>Database Management</h3>
+            <p>Working with SQL schemas and structured data.</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon-circle"><i class="fa-solid fa-vial-circle-check"></i></div>
+            <h3>Software Testing</h3>
+            <p>Building reliable, verified, high-quality code.</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon-circle"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h3>Continuous Learning</h3>
+            <p>Always improving my engineering skills and craft.</p>
+          </div>
+        </div>
+
+        <p class="bottom-slogan-uppercase">LET&rsquo;S BUILD SOMETHING GREAT TOGETHER &hearts;</p>
+      </div>
+    </section>
+
+    <!-- VIEW 2: ABOUT ME -->
+    <section id="view-about" class="view-panel" aria-label="About Me">
+      <div class="about-top-stage">
+        <div class="about-top-inner">
+          <div>
+            <div class="portrait-ring">
+              <img
+                src="profile.jpeg"
+                alt="Anna Ngobeni"
+                class="portrait-img"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="portrait-fallback" style="display: none;">AN</div>
+            </div>
+          </div>
+
+          <div>
+            <p class="about-kicker">&mdash; About Me &mdash;</p>
+            <h2 class="about-greeting-title">Hi, I&rsquo;m Anna Ngobeni</h2>
+            <div class="about-role-heading">ASPIRING SOFTWARE ENGINEER</div>
+            <p class="about-bio-text">
+              Motivated Software Engineering student with practical experience in web development, relational database design, project documentation, and software testing. Focused on building responsive interfaces, organizing structured data, and delivering dependable software solutions in collaborative team environments.
+            </p>
+            <p class="about-bio-text">
+              I enjoy turning ideas into functional, user-friendly applications while continuing to strengthen my engineering skills, testing practices, and problem-solving approach.
+            </p>
+            <div style="margin-top: 16px;">
+              <button type="button" class="btn-burgundy-pill cv-download-trigger">
+                <i class="fa-solid fa-file-arrow-down"></i> Download CV &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-cards-section">
+        <div class="about-four-grid">
+          <div class="about-card">
+            <h3>Education</h3>
+            <p>Occupational Certificate: Software Engineer (NQF 6) &mdash; CTU Training Solutions, Polokwane Campus</p>
+            <span class="about-status-note"><i class="fa-regular fa-clock"></i> In Progress</span>
+          </div>
+
+          <div class="about-card">
+            <h3>My Experience</h3>
+            <p>
+              Practical experience in web development, relational database design, project documentation, and software testing.
+            </p>
+            <span class="about-status-note"><i class="fa-solid fa-seedling"></i> Growing my skills every day</span>
+          </div>
+
+          <div class="about-card">
+            <h3><i class="fa-regular fa-heart"></i> My Interests</h3>
+            <ul class="about-interests-list">
+              <li>Coding &amp; Web Development</li>
+              <li>Software Testing &amp; QA</li>
+              <li>Relational Databases</li>
+              <li>Learning New Technologies</li>
+              <li>Practical Software Projects</li>
+            </ul>
+          </div>
+
+          <div class="about-connect-dark">
+            <div>
+              <h3>&rarr; Let&rsquo;s Connect</h3>
+              <p>Polokwane, Limpopo, South Africa</p>
+              <div class="connect-meta-list">
+                <a
+                  href="https://www.linkedin.com/in/anna-ngobeni-590826278?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="connect-meta-row"
+                >
+                  <i class="fa-brands fa-linkedin-in"></i>
+                  <span>linkedin.com/in/anna-ngobeni-590826278</span>
+                </a>
+                <a
+                  href="https://github.com/senyatsianna-pixel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="connect-meta-row"
+                >
+                  <i class="fa-brands fa-github"></i>
+                  <span>github.com/senyatsianna-pixel</span>
+                </a>
+              </div>
+            </div>
+            <button type="button" class="btn-soft-pill" style="width: 100%;" data-switch-view="contact" data-focus-name="true">
+              <i class="fa-regular fa-paper-plane"></i> Contact Me &rarr;
+            </button>
+          </div>
+        </div>
+
+        <p class="bottom-slogan-uppercase">THANK YOU FOR VISITING MY PORTFOLIO!</p>
+      </div>
+    </section>
+
+    <!-- VIEW 3: PROJECTS -->
+    <section id="view-projects" class="view-panel" aria-label="Projects">
+      <div class="subpage-banner">
+        <div class="subpage-banner-inner">
+          <p class="banner-kicker">&mdash; My Projects &mdash;</p>
+          <h2 class="banner-title">Showcasing <span>My Work</span></h2>
+          <p class="banner-sub">
+            Selected projects demonstrating web development, relational database design, system interfaces, and software testing.
+          </p>
+        </div>
+      </div>
+
+      <div class="projects-container">
+        <div class="projects-top-pills">
+          <button type="button" class="pill-filter-btn is-active" data-project-filter="all">All</button>
+          <button type="button" class="pill-filter-btn" data-project-filter="web">Web Apps</button>
+          <button type="button" class="pill-filter-btn" data-project-filter="desktop">Desktop &amp; Systems</button>
+          <button type="button" class="pill-filter-btn" data-project-filter="database">Database</button>
+        </div>
+
+        <div class="projects-grid-3">
+          <article class="project-tile" data-category="database">
+            <div class="project-photo-frame">
+              <img src="flight.png" alt="SAA Flight Booking System preview" />
+            </div>
+            <div class="project-tile-body">
+              <div>
+                <h3 class="project-tile-title"><i class="fa-solid fa-plane"></i> SAA Flight Booking System</h3>
+                <p class="project-tile-desc">
+                  Relational database schema and SQL Server table scripts modeling airports, passengers, flights, bookings, tickets, and payments.
+                </p>
+              </div>
+              <div class="project-tech-pills">
+                <span class="project-tech-pill">SQL Server</span>
+                <span class="project-tech-pill">Relational Schema</span>
+                <span class="project-tech-pill">Database</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-tile" data-category="desktop">
+            <div class="project-photo-frame">
+              <img src="ticket.png" alt="Ticket Application System preview" />
+            </div>
+            <div class="project-tile-body">
+              <div>
+                <h3 class="project-tile-title"><i class="fa-solid fa-ticket"></i> Ticket Application System</h3>
+                <p class="project-tile-desc">
+                  Travel ticket cost calculation interface applying trip details and discount/category rules with clear inputs and live fare summary output.
+                </p>
+              </div>
+              <div class="project-tech-pills">
+                <span class="project-tech-pill">HTML</span>
+                <span class="project-tech-pill">CSS</span>
+                <span class="project-tech-pill">JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-tile" data-category="web">
+            <div class="project-photo-frame">
+              <img src="properti.png" alt="Properties Website preview" />
+            </div>
+            <div class="project-tile-body">
+              <div>
+                <h3 class="project-tile-title"><i class="fa-solid fa-house"></i> Properties Website</h3>
+                <p class="project-tile-desc">
+                  Responsive property browsing interface allowing visitors to view listings to buy or rent across screen sizes.
+                </p>
+              </div>
+              <div class="project-tech-pills">
+                <span class="project-tech-pill">HTML</span>
+                <span class="project-tech-pill">CSS</span>
+                <span class="project-tech-pill">JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-tile" data-category="desktop">
+            <div class="project-photo-frame">
+              <img src="hopeit.png" alt="HopeIT Management preview" />
+            </div>
+            <div class="project-tile-body">
+              <div>
+                <h3 class="project-tile-title"><i class="fa-solid fa-boxes-stacked"></i> HopeIT Management</h3>
+                <p class="project-tile-desc">
+                  Business management interface organizing customer, product, order, and reporting workflows with structured navigation and testing.
+                </p>
+              </div>
+              <div class="project-tech-pills">
+                <span class="project-tech-pill">CRUD &amp; Reporting</span>
+                <span class="project-tech-pill">System UI</span>
+                <span class="project-tech-pill">Testing</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="project-cta-card">
+            <h3>Let&rsquo;s Build Something Great Together</h3>
+            <p>Feel free to explore my work or get in touch if you&rsquo;d like to collaborate!</p>
+            <button type="button" class="btn-burgundy-pill" data-switch-view="contact" data-focus-name="true">
+              <i class="fa-regular fa-paper-plane"></i> Contact Me &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: SKILLS -->
+    <section id="view-skills" class="view-panel" aria-label="Skills">
+      <div class="subpage-banner">
+        <div class="subpage-banner-inner">
+          <p class="banner-kicker">&mdash; My Skills &mdash;</p>
+          <h2 class="banner-title">Skills &amp; <span>Expertise</span></h2>
+          <p class="banner-sub">
+            Technologies and tools I work with &mdash; building a strong foundation in software engineering, testing, databases, and web development.
+          </p>
+        </div>
+      </div>
+
+      <div class="skills-container">
+        <div class="skills-row-top">
+          <div class="skill-panel">
+            <div class="skill-header-pill"><i class="fa-solid fa-code"></i> Programming &amp; Web</div>
+            <div class="skill-icon-grid">
+              <div class="skill-box"><div class="skill-badge">HTML</div><span>HTML</span></div>
+              <div class="skill-box"><div class="skill-badge">CSS</div><span>CSS</span></div>
+              <div class="skill-box"><div class="skill-badge">JS</div><span>JavaScript</span></div>
+              <div class="skill-box"><div class="skill-badge">PY</div><span>Python</span></div>
+              <div class="skill-box"><div class="skill-badge">JV</div><span>Java</span></div>
+              <div class="skill-box"><div class="skill-badge">C#</div><span>C#</span></div>
+              <div class="skill-box"><div class="skill-badge">SQL</div><span>SQL</span></div>
+            </div>
+          </div>
+
+          <div class="skill-panel">
+            <div class="skill-header-pill"><i class="fa-solid fa-wrench"></i> Tools &amp; Frameworks</div>
+            <div class="skill-icon-grid cols-3">
+              <div class="skill-box"><div class="skill-badge">VS</div><span>VS Code</span></div>
+              <div class="skill-box"><div class="skill-badge">GH</div><span>GitHub</span></div>
+              <div class="skill-box"><div class="skill-badge">Se</div><span>Selenium</span></div>
+            </div>
+          </div>
+
+          <div class="skill-panel">
+            <div class="skill-header-pill"><i class="fa-solid fa-database"></i> Databases</div>
+            <div class="skill-icon-grid cols-2">
+              <div class="skill-box"><div class="skill-badge">MY</div><span>MySQL</span></div>
+              <div class="skill-box"><div class="skill-badge">PG</div><span>PostgreSQL</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-row-bottom">
+          <div class="skill-panel">
+            <div class="skill-header-pill"><i class="fa-solid fa-bug"></i> Software Testing &amp; QA</div>
+            <div class="skill-icon-grid">
+              <div class="skill-box"><div class="skill-badge">MT</div><span>Manual Testing</span></div>
+              <div class="skill-box"><div class="skill-badge">FT</div><span>Functional Testing</span></div>
+              <div class="skill-box"><div class="skill-badge">PT</div><span>Performance Testing</span></div>
+              <div class="skill-box"><div class="skill-badge">AT</div><span>Automation Testing</span></div>
+            </div>
+          </div>
+
+          <div class="skill-panel">
+            <div class="skill-header-pill"><i class="fa-solid fa-layer-group"></i> Developer Practices</div>
+            <div class="skill-icon-grid">
+              <div class="skill-box"><div class="skill-badge">GIT</div><span>Git</span></div>
+              <div class="skill-box"><div class="skill-badge">GHP</div><span>GitHub Pages</span></div>
+              <div class="skill-box"><div class="skill-badge">DOC</div><span>Documentation</span></div>
+              <div class="skill-box"><div class="skill-badge">TW</div><span>Team Workflows</span></div>
+            </div>
+          </div>
+
+          <div class="soft-skills-panel">
+            <h3><i class="fa-regular fa-heart"></i> Core Strengths</h3>
+            <ul>
+              <li>Analytical Thinking</li>
+              <li>Attention to Detail</li>
+              <li>Adaptability</li>
+              <li>Clear Communication</li>
+              <li>Time Management</li>
+              <li>Continuous Learning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 5: CONTACT -->
+    <section id="view-contact" class="view-panel" aria-label="Contact">
+      <div class="contact-banner-bg">
+        <div class="contact-grid-3">
+          <div>
+            <p class="banner-kicker">&mdash; Get In Touch &mdash;</p>
+            <h2 class="contact-heading-main">Contact <span>Me</span></h2>
+            <p class="contact-script-sub">Let&rsquo;s Work Together</p>
+            <p style="font-size: 13px; color: rgba(255,255,255,0.88); margin: 0 0 18px;">
+              I&rsquo;m always open to new opportunities, collaborations, and software projects. Feel free to reach out to me!
+            </p>
+
+            <div class="contact-pill-stack">
+              <a
+                href="https://www.linkedin.com/in/anna-ngobeni-590826278?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-info-card"
+              >
+                <div class="contact-info-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                <div>
+                  <strong style="display:block; font-size:12.5px; color:var(--burgundy-dark);">LinkedIn</strong>
+                  <span style="font-size:12px; color:var(--ink-muted);">linkedin.com/in/anna-ngobeni-590826278</span>
+                </div>
+              </a>
+
+              <a
+                href="https://github.com/senyatsianna-pixel"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-info-card"
+              >
+                <div class="contact-info-icon"><i class="fa-brands fa-github"></i></div>
+                <div>
+                  <strong style="display:block; font-size:12.5px; color:var(--burgundy-dark);">GitHub</strong>
+                  <span style="font-size:12px; color:var(--ink-muted);">github.com/senyatsianna-pixel</span>
+                </div>
+              </a>
+
+              <div class="contact-info-card">
+                <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                  <strong style="display:block; font-size:12.5px; color:var(--burgundy-dark);">Location</strong>
+                  <span style="font-size:12px; color:var(--ink-muted);">Polokwane, Limpopo, South Africa</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="portrait-ring">
+              <img
+                src="profile.jpeg"
+                alt="Anna Ngobeni"
+                class="portrait-img"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="portrait-fallback" style="display: none;">AN</div>
+            </div>
+          </div>
+
+          <div class="contact-form-card">
+            <h3>Send Me a Message</h3>
+            <p class="contact-form-sub">Have a question, a project idea, or just want to say hello? I&rsquo;d love to hear from you!</p>
+
+            <form id="contactForm" novalidate>
+              <div class="field-row">
+                <input type="text" id="senderName" class="field-input" placeholder="Your Name" required />
+              </div>
+              <div class="field-row">
+                <input type="email" id="senderEmail" class="field-input" placeholder="Your Email" required />
+              </div>
+              <div class="field-row">
+                <textarea id="senderMessage" class="field-textarea" placeholder="Your Message..." required></textarea>
+              </div>
+              <button type="submit" class="btn-burgundy-pill" style="width: 100%;">
+                <i class="fa-regular fa-paper-plane"></i> Send Message
+              </button>
+              <div id="formStatus" class="status-banner" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+
+        <p class="bottom-slogan-script">Thank you for visiting my portfolio! &hearts;</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-brand">
+        <span class="an-monogram">A<span>N</span></span>
+        <div>
+          <strong>Anna Ngobeni</strong>
+          <p>Aspiring Software Engineer &bull; Polokwane, Limpopo, South Africa</p>
+        </div>
+      </div>
+
+      <nav class="site-footer-links" aria-label="Footer Navigation">
+        <button type="button" class="footer-nav-link" data-switch-view="home">Home</button>
+        <button type="button" class="footer-nav-link" data-switch-view="about">About Me</button>
+        <button type="button" class="footer-nav-link" data-switch-view="projects">Projects</button>
+        <button type="button" class="footer-nav-link" data-switch-view="skills">Skills</button>
+        <button type="button" class="footer-nav-link" data-switch-view="contact">Contact</button>
+      </nav>
+
+      <div class="site-footer-actions">
+        <a
+          href="https://www.linkedin.com/in/anna-ngobeni-590826278?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-social-link"
+          aria-label="LinkedIn Profile"
+          title="LinkedIn"
+        >
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a
+          href="https://github.com/senyatsianna-pixel"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-social-link"
+          aria-label="GitHub Profile"
+          title="GitHub"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <button type="button" class="btn-soft-pill cv-download-trigger">
+          <i class="fa-solid fa-download"></i> CV
+        </button>
+      </div>
+    </div>
+
+    <div class="site-footer-bottom">
+      <span>&copy; 2026 Anna Ngobeni. All rights reserved.</span>
+      <span>LET&rsquo;S BUILD SOMETHING GREAT TOGETHER &hearts;</span>
+    </div>
+  </footer>
+
+  <script>
+    // View switching + Say Hello focus behavior
+    const navTabs = document.querySelectorAll(".nav-tab");
+    const viewPanels = document.querySelectorAll(".view-panel");
+    const nameInput = document.getElementById("senderName");
+
+    function switchView(viewName, shouldFocusName) {
+      viewPanels.forEach((panel) => {
+        panel.classList.toggle("is-active", panel.id === `view-${viewName}`);
+      });
+      navTabs.forEach((tab) => {
+        tab.classList.toggle("is-active", tab.dataset.switchView === viewName);
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      if (shouldFocusName && nameInput) {
+        setTimeout(() => {
+          nameInput.focus();
+        }, 250);
+      }
+    }
+
+    document.querySelectorAll("[data-switch-view]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const focusName = el.dataset.focusName === "true";
+        switchView(el.dataset.switchView, focusName);
+      });
+    });
+
+    // Project filtering
+    const filterButtons = document.querySelectorAll("[data-project-filter]");
+    const projectTiles = document.querySelectorAll(".project-tile");
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.dataset.projectFilter;
+        filterButtons.forEach((b) => b.classList.toggle("is-active", b === btn));
+        projectTiles.forEach((tile) => {
+          const matches = filter === "all" || tile.dataset.category === filter;
+          tile.classList.toggle("is-hidden", !matches);
+        });
+      });
+    });
+
+    // Direct PDF CV download matching Anna Ngobeni - Curriculum Vitae.pdf without opening print dialog
+    function escapePdfText(text) {
+      return String(text)
+        .replace(/\\/g, "\\\\")
+        .replace(/\(/g, "\\(")
+        .replace(/\)/g, "\\)")
+        .replace(/[^\x20-\x7E]/g, "-");
+    }
+
+    function wrapPdfLine(text, maxChars) {
+      if (text.length <= maxChars) return [text];
+      const words = text.split(" ");
+      const wrapped = [];
+      let current = "";
+      words.forEach((word) => {
+        if (!current) {
+          current = word;
+        } else if ((current + " " + word).length <= maxChars) {
+          current += " " + word;
+        } else {
+          wrapped.push(current);
+          current = word;
+        }
+      });
+      if (current) wrapped.push(current);
+      return wrapped;
+    }
+
+    function buildCurriculumVitaePdf() {
+      const rawSections = [
+        { text: "Anna Ngobeni", style: "title" },
+        { text: "ASPIRING SOFTWARE ENGINEER", style: "subtitle" },
+        { text: "Polokwane, Limpopo, South Africa | LinkedIn: linkedin.com/in/anna-ngobeni-590826278 | GitHub: github.com/senyatsianna-pixel", style: "meta" },
+        { text: " ", style: "body" },
+        { text: "PROFESSIONAL SUMMARY", style: "heading" },
+        { text: "Motivated Software Engineering student with practical experience in web development, relational database design, project documentation, and software testing. Focused on building responsive interfaces, organizing structured data, and delivering dependable software solutions in collaborative team environments.", style: "body" },
+        { text: " ", style: "body" },
+        { text: "EDUCATION", style: "heading" },
+        { text: "Occupational Certificate: Software Engineer (NQF 6) - CTU Training Solutions, Polokwane Campus (In Progress)", style: "body" },
+        { text: " ", style: "body" },
+        { text: "TECHNICAL & ENGINEERING SKILLS", style: "heading" },
+        { text: "Programming & Web: HTML, CSS, JavaScript, Python, Java, C#, SQL", style: "body" },
+        { text: "Databases: MySQL, PostgreSQL, Relational Database Design, SQL Server Schemas", style: "body" },
+        { text: "Software Testing & QA: Manual Testing, Functional Testing, Performance Testing, Automation Testing, Selenium", style: "body" },
+        { text: "Developer Tools & Practices: Visual Studio Code, Git, GitHub, GitHub Pages, Project Documentation, Team Workflows", style: "body" },
+        { text: " ", style: "body" },
+        { text: "SELECTED PROJECTS", style: "heading" },
+        { text: "SAA Flight Booking System: Relational database schema and SQL Server table scripts modeling airports, passengers, flights, bookings, tickets, and payments.", style: "body" },
+        { text: "Ticket Application System: Travel ticket cost calculation interface applying trip details and discount/category rules with clear inputs and live fare summary output.", style: "body" },
+        { text: "Properties Website: Responsive property browsing interface allowing visitors to view listings to buy or rent across screen sizes.", style: "body" },
+        { text: "HopeIT Management: Business management interface organizing customer, product, order, and reporting workflows with structured navigation and testing.", style: "body" },
+        { text: " ", style: "body" },
+        { text: "CORE STRENGTHS & INTERESTS", style: "heading" },
+        { text: "Analytical thinking, attention to detail, adaptability, clear communication, time management, and continuous learning across web applications, relational databases, software testing, and practical software projects.", style: "body" }
+      ];
+
+      let stream = "BT\n50 745 Td\n";
+
+      rawSections.forEach((item) => {
+        if (item.style === "title") {
+          stream += `/F2 18 Tf\n14 TL\n(${escapePdfText(item.text)}) Tj\nT*\n`;
+        } else if (item.style === "subtitle") {
+          stream += `/F2 11 Tf\n14 TL\n(${escapePdfText(item.text)}) Tj\nT*\n`;
+        } else if (item.style === "heading") {
+          stream += `/F2 11.5 Tf\n14 TL\n(${escapePdfText(item.text)}) Tj\nT*\n`;
+        } else if (item.style === "meta") {
+          const lines = wrapPdfLine(item.text, 86);
+          stream += `/F1 9.5 Tf\n13 TL\n`;
+          lines.forEach((l) => {
+            stream += `(${escapePdfText(l)}) Tj\nT*\n`;
+          });
+        } else {
+          const lines = wrapPdfLine(item.text, 84);
+          stream += `/F1 10 Tf\n13.5 TL\n`;
+          lines.forEach((l) => {
+            stream += `(${escapePdfText(l)}) Tj\nT*\n`;
+          });
+        }
+      });
+
+      stream += "ET";
+
+      const objects = [
+        "1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n",
+        "2 0 obj\n<< /Type /Kids [3 0 R] /Count 1 >>\nendobj\n",
+        "3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>\nendobj\n",
+        `4 0 obj\n<< /Length ${stream.length} >>\nstream\n${stream}\nendstream\nendobj\n`,
+        "5 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>\nendobj\n",
+        "6 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>\nendobj\n"
+      ];
+
+      let pdf = "%PDF-1.4\n";
+      const offsets = [0];
+
+      objects.forEach((obj) => {
+        offsets.push(pdf.length);
+        pdf += obj;
+      });
+
+      const xrefStart = pdf.length;
+      pdf += `xref\n0 ${objects.length + 1}\n`;
+      pdf += "0000000000 65535 f \n";
+
+      for (let i = 1; i < offsets.length; i++) {
+        pdf += `${String(offsets[i]).padStart(10, "0")} 00000 n \n`;
+      }
+
+      pdf += `trailer\n<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xrefStart}\n%%EOF`;
+
+      return new TextEncoder().encode(pdf);
+    }
+
+    function downloadCvDirectly() {
+      const pdfBytes = buildCurriculumVitaePdf();
+      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "Anna Ngobeni — Curriculum Vitae.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    document.querySelectorAll(".cv-download-trigger").forEach((btn) => {
+      btn.addEventListener("click", downloadCvDirectly);
+    });
+
+    // Contact form validation
+    const contactForm = document.getElementById("contactForm");
+    const formStatus = document.getElementById("formStatus");
+
+    if (contactForm && formStatus) {
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("senderName").value.trim();
+        const email = document.getElementById("senderEmail").value.trim();
+        const message = document.getElementById("senderMessage").value.trim();
+
+        if (!name || !email || !message) {
+          formStatus.className = "status-banner is-error";
+          formStatus.textContent = "Please complete your name, email, and message before sending.";
+          return;
+        }
+
+        formStatus.className = "status-banner is-success";
+        formStatus.textContent = `Thank you, ${name}. Your message has been recorded.`;
+        contactForm.reset();
+      });
+    }
+  </script>
+</body>
+</html>
